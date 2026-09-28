@@ -19,7 +19,7 @@ const highlightMatch = (text: string, query: string) => {
   const regex = new RegExp(`(${escapeRegExp(query)})`, 'ig');
   const parts = text.split(regex);
   return parts.map((part, index) =>
-    regex.test(part) ? (
+    part.toLowerCase() === query.toLowerCase() ? (
       <mark key={index} className="bg-yellow-200 text-inherit">
         {part}
       </mark>
